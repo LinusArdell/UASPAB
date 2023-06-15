@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="6dp"
     android:elevation="32dp">
 
     <RelativeLayout
+        android:background="#6D5D6E"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="6dp">
@@ -19,11 +19,11 @@
 
         <ImageView
             android:id="@+id/iv_foto"
-            android:layout_width="75dp"
-            android:layout_height="80dp"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
             android:layout_marginRight="8dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/mp3"/>
+            android:src="@drawable/acac"/>
 
         <TextView
             android:id="@+id/tv_id"
@@ -43,6 +43,7 @@
             android:visibility="gone"/>
 
         <TextView
+            android:textColor="@color/white"
             android:id="@+id/tv_artis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,6 +53,7 @@
             android:textStyle="bold"/>
 
         <TextView
+            android:textColor="@color/white"
             android:id="@+id/tv_space"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,6 +65,7 @@
             android:layout_marginRight="5dp"/>
 
         <TextView
+            android:textColor="@color/white"
             android:id="@+id/tv_judul"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,6 +75,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:textColor="@color/white"
             android:id="@+id/tv_genre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -81,14 +85,15 @@
             android:textSize="10sp" />
 
         <TextView
+            android:textColor="@color/white"
             android:id="@+id/tv_lirik"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/iv_foto"
             android:layout_below="@id/tv_genre"
-            android:text="Lirik"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id justo in sem lobortis placerat. Proin varius nunc vel ultrices consectetur. Suspendisse consectetur sagittis purus, nec aliquet dolor rhoncus ut. Ut sagittis, velit at commodo fermentum, lorem ligula ullamcorper quam, sed accumsan enim libero eget metus. Nulla facilisi. In hac habitasse platea dictumst. Nunc lacinia viverra nisi, id eleifend lacus mollis id. Sed venenatis magna sed mi cursus, ut congue risus elementum. Curabitur non mi id nunc ultrices egestas eu nec risus. Nam fringilla, risus id pulvinar volutpat, leo nibh tristique mauris, sit amet vulputate est lorem et nisl. Donec suscipit velit in lorem interdum, vitae maximus velit posuere. Sed vel leo vel velit mollis efficitur a et sem."
             android:ellipsize="end"
-            android:maxLines="2"
+            android:maxLines="3"
             android:layout_marginTop="6dp"/>
 
         <LinearLayout

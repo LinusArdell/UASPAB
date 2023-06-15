@@ -98,8 +98,7 @@ public class AdapterMusik extends RecyclerView.Adapter<AdapterMusik.VHMusik> {
                 @Override
                 public boolean onLongClick(View view) {
                     AlertDialog.Builder pesan = new AlertDialog.Builder(ctx);
-                    pesan.setTitle("Perhatian");
-                    pesan.setMessage("Operasi apa yang akan dilaksanakan?");
+                    pesan.setTitle("Edit Tag");
                     pesan.setCancelable(true);
 
                     pesan.setNegativeButton("Hapus", new DialogInterface.OnClickListener() {
