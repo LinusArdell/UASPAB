@@ -142,7 +142,7 @@ public class AdapterMusik extends RecyclerView.Adapter<AdapterMusik.VHMusik> {
                 String kode = response.body().getKode();
                 String pesan = response.body().getPesan();
 
-                Toast.makeText(ctx, "Kode: " + kode + ", Pesan: " + pesan, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ctx, pesan, Toast.LENGTH_SHORT).show();
                 ((MainActivity) ctx).retrieveMusik();
             }
 

@@ -1,69 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.Tambah"
-    android:padding="16dp"
-    android:orientation="vertical">
+    android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Tambah Musik"
-        android:layout_marginBottom="16dp"
-        android:textSize="26sp"
-        android:textStyle="bold"/>
-
-    <EditText
-        android:id="@+id/et_tambah_judul"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Judul Lagu"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/et_tambah_artis"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nama Band/Artis"
-        android:layout_marginBottom="16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Tambah Musik"
+            android:layout_marginBottom="16dp"
+            android:textSize="26sp"
+            android:textStyle="bold"/>
 
-    <EditText
-        android:id="@+id/et_tambah_album"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nama Album"
-        android:layout_marginBottom="16dp"/>
+        <EditText
+            android:id="@+id/et_tambah_judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Judul Lagu"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
 
-    <EditText
-        android:id="@+id/et_tambah_genre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Genre Lagu"
-        android:layout_marginBottom="16dp"/>
+        <EditText
+            android:id="@+id/et_tambah_artis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Band/Artis"
+            android:layout_marginBottom="16dp"/>
 
-    <EditText
-        android:id="@+id/et_tambah_lirik"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Lirik"
-        android:layout_marginBottom="16dp"/>
+        <EditText
+            android:id="@+id/et_tambah_album"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Album"
+            android:layout_marginBottom="16dp"/>
 
-    <EditText
-        android:id="@+id/et_tambah_link"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="https://www.youtube.com/watch?v="
-        android:layout_marginBottom="16dp"/>
+        <EditText
+            android:id="@+id/et_tambah_genre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Genre Lagu"
+            android:layout_marginBottom="16dp"/>
 
-    <Button
-        android:id="@+id/btn_tambah_tambah"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tambah"/>
+        <EditText
+            android:id="@+id/et_tambah_lirik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lirik"
+            android:layout_marginBottom="16dp"/>
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/et_tambah_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="https://www.youtube.com/watch?v="
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btn_tambah_tambah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tambah"/>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -72,7 +72,7 @@ public class Tambah extends AppCompatActivity {
                 String kode = response.body().getKode();
                 String pesan = response.body().getPesan();
 
-                Toast.makeText(Tambah.this, "Kode " + kode + "Pesan " + pesan, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Tambah.this, "Berhasil ditambahkan kedalam koleksi", Toast.LENGTH_SHORT).show();
                 finish();
             }
 
