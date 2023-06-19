@@ -16,8 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.twelve.mp3.player.API.APIRequestData;
 import com.twelve.mp3.player.API.RetroServer;
 import com.twelve.mp3.player.Activity.Detail;
-import com.twelve.mp3.player.Activity.MainActivity;
 import com.twelve.mp3.player.Activity.Ubah;
+import com.twelve.mp3.player.Fragment.HomeFragment;
 import com.twelve.mp3.player.Model.ModelMusik;
 import com.twelve.mp3.player.Model.ModelResponse;
 import com.twelve.mp3.player.R;
@@ -31,9 +31,11 @@ import retrofit2.Response;
 public class AdapterMusik extends RecyclerView.Adapter<AdapterMusik.VHMusik> {
     private Context ctx;
     private List<ModelMusik> listMusik;
+    private HomeFragment homeFragment;
 
-    public AdapterMusik(Context ctx, List<ModelMusik> listMusik){
+    public AdapterMusik(Context ctx, HomeFragment homeFragment, List<ModelMusik> listMusik) {
         this.ctx = ctx;
+        this.homeFragment = homeFragment;
         this.listMusik = listMusik;
     }
 
@@ -80,7 +82,11 @@ public class AdapterMusik extends RecyclerView.Adapter<AdapterMusik.VHMusik> {
         return listMusik.size();
     }
 
-    public class VHMusik extends RecyclerView.ViewHolder{
+    public void setMusikList(List<ModelMusik> listMusik) {
+        this.listMusik = listMusik;
+    }
+
+    public class VHMusik extends RecyclerView.ViewHolder {
         TextView tvId, tvJudul, tvArtis, tvAlbum, tvGenre, tvLirik, tvLink;
 
         public VHMusik(@NonNull View itemView) {
@@ -128,8 +134,6 @@ public class AdapterMusik extends RecyclerView.Adapter<AdapterMusik.VHMusik> {
                 }
             });
         }
-
-
     }
 
     private void hapusMusik(String idMusik) {
@@ -143,7 +147,7 @@ public class AdapterMusik extends RecyclerView.Adapter<AdapterMusik.VHMusik> {
                 String pesan = response.body().getPesan();
 
                 Toast.makeText(ctx, pesan, Toast.LENGTH_SHORT).show();
-                ((MainActivity) ctx).retrieveMusik();
+                homeFragment.retrieveMusik();
             }
 
             @Override
@@ -152,5 +156,4 @@ public class AdapterMusik extends RecyclerView.Adapter<AdapterMusik.VHMusik> {
             }
         });
     }
-
 }

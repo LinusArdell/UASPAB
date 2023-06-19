@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.Detail"
-    android:background="#6D5D6E">
+    android:background="#020b1d">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="6dp"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:orientation="vertical">
 
         <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:id="@+id/yp_musik"
@@ -35,10 +34,11 @@
         <RelativeLayout
             android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
 
             <TextView
-                android:textColor="@color/white"
+                android:textColor="#f0f3f5"
                 android:id="@+id/tv_artis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:textColor="@color/white"
+                android:textColor="#f0f3f5"
                 android:id="@+id/tv_space"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                 android:layout_marginRight="5dp"/>
 
             <TextView
-                android:textColor="@color/white"
+                android:textColor="#f0f3f5"
                 android:id="@+id/tv_judul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,25 +69,33 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:textColor="@color/white"
+                android:textColor="#f0f3f5"
                 android:id="@+id/tv_genre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Genre"
-                android:layout_below="@id/tv_artis"
                 android:textSize="10sp"
                 android:visibility="gone"/>
         </RelativeLayout>
 
         <TextView
-            android:textColor="@color/white"
+            android:textColor="#f0f3f5"
             android:id="@+id/tv_album"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Album"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
             android:textSize="15sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:textColor="#f0f3f5"
+            android:id="@+id/tv_lirik"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id justo in sem lobortis placerat. Proin varius nunc vel ultrices consectetur. Suspendisse consectetur sagittis purus, nec aliquet dolor rhoncus ut. Ut sagittis, velit at commodo fermentum, lorem ligula ullamcorper quam, sed accumsan enim libero eget metus. Nulla facilisi. In hac habitasse platea dictumst. Nunc lacinia viverra nisi, id eleifend lacus mollis id. Sed venenatis magna sed mi cursus, ut congue risus elementum. Curabitur non mi id nunc ultrices egestas eu nec risus. Nam fringilla, risus id pulvinar volutpat, leo nibh tristique mauris, sit amet vulputate est lorem et nisl. Donec suscipit velit in lorem interdum, vitae maximus velit posuere. Sed vel leo vel velit mollis efficitur a et sem."
+            android:layout_marginTop="40dp"/>
 
         <Button
             android:id="@+id/btn_stop"
@@ -96,23 +104,11 @@
             android:text="Pause"
             android:visibility="gone"/>
 
-        <LinearLayout
+        <View
+            android:id="@+id/bottom_box"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:textColor="@color/white"
-                android:id="@+id/tv_lirik"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/tv_genre"
-                android:text="Lirik"
-                android:layout_marginTop="6dp"/>
-
-        </LinearLayout>
+            android:layout_height="13dp"
+            android:layout_alignParentBottom="true"
+            android:background="#020b1d" />
     </LinearLayout>
-
-
-
 </ScrollView>

@@ -8,27 +8,43 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.12Mp3"
         tools:targetApi="31">
+
         <activity
             android:name=".Activity.Detail"
             android:exported="false"
-            android:parentActivityName=".Activity.MainActivity" />
+            android:parentActivityName=".Activity.MainActivity"
+            android:theme="@style/Theme.12Mp3">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.MainActivity" />
+        </activity>
         <activity
             android:name=".Activity.Ubah"
             android:exported="false"
-            android:parentActivityName=".Activity.MainActivity" />
+            android:parentActivityName=".Activity.MainActivity"
+            android:theme="@style/Theme.12Mp3">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.MainActivity" />
+        </activity>
         <activity
             android:name=".Activity.Tambah"
             android:exported="false"
-            android:parentActivityName=".Activity.MainActivity" />
+            android:parentActivityName=".Activity.MainActivity"
+            android:theme="@style/Theme.12Mp3">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.MainActivity" />
+        </activity>
+
         <activity
             android:name=".Activity.MainActivity"
             android:exported="true">
-
         </activity>
         <activity
             android:name=".Activity.Splash"
@@ -40,5 +56,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

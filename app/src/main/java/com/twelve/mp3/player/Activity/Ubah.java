@@ -91,7 +91,7 @@ public class Ubah extends AppCompatActivity {
                 String kode = response.body().getKode();
                 String pesan = response.body().getPesan();
 
-                Toast.makeText(Ubah.this, "Kode " + kode + "Pesan " + pesan, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Ubah.this, "Data berhasil diubah", Toast.LENGTH_SHORT).show();
                 finish();
             }
 

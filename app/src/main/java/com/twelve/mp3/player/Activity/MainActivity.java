@@ -1,19 +1,40 @@
 package com.twelve.mp3.player.Activity;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.twelve.mp3.player.API.APIRequestData;
 import com.twelve.mp3.player.API.RetroServer;
 import com.twelve.mp3.player.Adapter.AdapterMusik;
+import com.twelve.mp3.player.Fragment.HomeFragment;
+import com.twelve.mp3.player.Fragment.LibraryFragment;
+import com.twelve.mp3.player.Fragment.ShortFragment;
+import com.twelve.mp3.player.Fragment.SubscriptionFragment;
 import com.twelve.mp3.player.Model.ModelMusik;
 import com.twelve.mp3.player.Model.ModelResponse;
 import com.twelve.mp3.player.R;
@@ -26,64 +47,121 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-private RecyclerView rvMusik;
-private FloatingActionButton fabTambah;
-private ProgressBar pb12mp3;
-private RecyclerView.Adapter adMusik;
-private RecyclerView.LayoutManager lmMusik;
-private List<ModelMusik> listMusik = new ArrayList<>();
-
+    FloatingActionButton fab;
+    DrawerLayout drawerLayout;
+    BottomNavigationView bottomNavigationView;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rvMusik = findViewById(R.id.rv_12mp3);
-        fabTambah = findViewById(R.id.fab_tambah);
-        pb12mp3 = findViewById(R.id.pb_12mp3);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        fab = findViewById(R.id.fab);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        Toolbar toolbar = findViewById(R.id.toolbar);
 
-        lmMusik = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        rvMusik.setLayoutManager(lmMusik);
+        setSupportActionBar(toolbar);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
-        fabTambah.setOnClickListener(new View.OnClickListener() {
+        if (savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new HomeFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_home);
+        }
+
+        replaceFragment(new HomeFragment());
+
+        bottomNavigationView.setBackground(null);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+
+            switch (item.getItemId()) {
+                case R.id.home:
+                    replaceFragment(new HomeFragment());
+                    break;
+                case R.id.shorts:
+                    replaceFragment(new ShortFragment());
+                    break;
+                case R.id.subscriptions:
+                    replaceFragment(new SubscriptionFragment());
+                    break;
+                case R.id.library:
+                    replaceFragment(new LibraryFragment());
+                    break;
+            }
+
+            return true;
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                showBottomDialog();
+            }
+        });
+    }
+
+    private  void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
+    }
+
+    private void showBottomDialog() {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.bottomsheetlayout);
+
+        LinearLayout videoLayout = dialog.findViewById(R.id.ly_koleksi);
+        LinearLayout shortsLayout = dialog.findViewById(R.id.layoutShorts);
+        LinearLayout liveLayout = dialog.findViewById(R.id.layoutLive);
+        ImageView cancelButton = dialog.findViewById(R.id.cancelButton);
+
+        videoLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, Tambah.class));
             }
         });
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        retrieveMusik();
-    }
 
-    public void retrieveMusik() {
-        pb12mp3.setVisibility(View.VISIBLE);
 
-        APIRequestData ARD = RetroServer.konekRetrofit().create(APIRequestData.class);
-        Call<ModelResponse> proses = ARD.ardRetrieve();
-
-        proses.enqueue(new Callback<ModelResponse>() {
+        shortsLayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(Call<ModelResponse> call, Response<ModelResponse> response) {
-                String kode = response.body().getKode();
-                String pesan = response.body().getPesan();
-                listMusik = response.body().getData();
+            public void onClick(View v) {
 
-                adMusik = new AdapterMusik(MainActivity.this, listMusik);
-                rvMusik.setAdapter(adMusik);
-                adMusik.notifyDataSetChanged();
+                dialog.dismiss();
+                Toast.makeText(MainActivity.this,"Create a short is Clicked",Toast.LENGTH_SHORT).show();
 
-                pb12mp3.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onFailure(Call<ModelResponse> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Failed to connect to server", Toast.LENGTH_SHORT).show();
-                pb12mp3.setVisibility(View.GONE);
             }
         });
+
+        liveLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog.dismiss();
+                Toast.makeText(MainActivity.this,"Go live is Clicked",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+
     }
 }

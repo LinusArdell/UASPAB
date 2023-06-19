@@ -3,13 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:elevation="32dp">
+    app:cardElevation="3dp"
+    app:cardCornerRadius="10dp"
+    app:cardMaxElevation="8dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
 
     <RelativeLayout
-        android:background="#6D5D6E"
+        android:background="#0d1529"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="6dp">
+        android:layout_height="130dp"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/tv_link"
@@ -19,11 +23,11 @@
 
         <ImageView
             android:id="@+id/iv_foto"
-            android:layout_width="95dp"
+            android:layout_width="85dp"
             android:layout_height="95dp"
             android:layout_marginRight="8dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/acac"/>
+            android:src="@drawable/baseline_music_note_24"/>
 
         <TextView
             android:id="@+id/tv_id"
@@ -50,7 +54,8 @@
             android:layout_toRightOf="@+id/iv_foto"
             android:text="Artis"
             android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:maxLines="1"/>
 
         <TextView
             android:textColor="@color/white"
@@ -72,7 +77,9 @@
             android:layout_toRightOf="@id/tv_space"
             android:text="Judul Lagu"
             android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"/>
 
         <TextView
             android:textColor="@color/white"
@@ -82,7 +89,8 @@
             android:text="Genre"
             android:layout_toRightOf="@id/iv_foto"
             android:layout_below="@id/tv_artis"
-            android:textSize="10sp" />
+            android:textSize="12sp"
+            android:maxLines="1"/>
 
         <TextView
             android:textColor="@color/white"
@@ -109,12 +117,8 @@
             </RelativeLayout>
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
-        </LinearLayout>
+
     </RelativeLayout>
+
 
 </androidx.cardview.widget.CardView>
