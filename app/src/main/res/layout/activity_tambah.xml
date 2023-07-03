@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Activity.Tambah"
     android:padding="16dp"
-    android:background="#0d1529">
+    android:background="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tambah"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:background="@color/white"/>
 
     </LinearLayout>

@@ -10,6 +10,8 @@ import android.os.Handler;
 import android.view.WindowManager;
 
 import com.twelve.mp3.player.R;
+import androidx.appcompat.app.AppCompatActivity;
+
 
 public class Splash extends AppCompatActivity {
 

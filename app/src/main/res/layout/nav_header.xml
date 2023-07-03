@@ -4,14 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="176dp"
     android:gravity="bottom"
-    android:padding="16dp"
+    android:padding="15dp"
     android:background="#020b1d"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
+        android:layout_marginTop="26dp"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:src="@drawable/baseline_person_24"/>
+        android:src="@drawable/baseline_person_24"
+        android:layout_marginBottom="5dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,5 +26,5 @@
         android:text="account@email.com"
         android:textColor="@color/white"
         android:textSize="14sp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="1dp"/>
 </LinearLayout>
