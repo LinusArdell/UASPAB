@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="6dp"
-    android:background="@color/purple_200">
+    android:background="#010510">
 
    <androidx.cardview.widget.CardView
        android:layout_width="match_parent"
@@ -34,7 +34,7 @@
             android:textSize="36dp"
             android:textAlignment="center"
             android:textStyle="bold"
-             android:textColor="@color/purple_200"/>
+             android:textColor="#0d1529"/>
 
          <EditText
              android:layout_width="match_parent"
@@ -69,7 +69,7 @@
             android:text="Login"
             android:textSize="18sp"
             android:layout_marginTop="30dp"
-            android:backgroundTint="@color/purple_200"
+            android:backgroundTint="#0d1529"
             app:cornerRadius = "20dp"/>
 
       </LinearLayout>
